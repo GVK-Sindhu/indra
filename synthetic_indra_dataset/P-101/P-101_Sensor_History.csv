@@ -1,0 +1,5 @@
+timestamp,asset_id,sensor,parameter_value,unit,status
+2026-06-11T08:00:00Z,P-101,VIB-01,1.2,mm/s,NORMAL
+2026-06-11T20:00:00Z,P-101,VIB-01,2.1,mm/s,NORMAL
+2026-06-12T08:00:00Z,P-101,VIB-01,3.2,mm/s,HIGH
+2026-06-12T09:30:00Z,P-101,VIB-01,3.8,mm/s,CRITICAL

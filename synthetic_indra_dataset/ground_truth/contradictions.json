@@ -1,0 +1,14 @@
+[
+    {
+        "contradiction_id": "C-001",
+        "asset_id": "P-101",
+        "fact_or_parameter": "maximum operating vibration threshold",
+        "source_document_1": "P-101_SOP_v1_Superseded.pdf",
+        "value_1": "4.5 mm/s",
+        "source_document_2": "P-101_SOP_v2_Current.pdf",
+        "value_2": "3.0 mm/s",
+        "reason_for_conflict": "SOP version update",
+        "expected_preferred_source": "P-101_SOP_v2_Current.pdf",
+        "explanation": "Version 2.0 is marked APPROVED and explicitly supersedes the OBSOLETE version 1.0."
+    }
+]

@@ -1,0 +1,12 @@
+[
+    {
+        "asset_id": "P-101",
+        "chain_name": "Vibration Incident to Bearing Replacement",
+        "steps": [
+            {"step": 1, "document": "P-101_Sensor_History.csv", "finding": "Vibration rises to 3.8 mm/s"},
+            {"step": 2, "document": "P-101_Inspection_Warning.pdf", "finding": "Inspector notes 3.8 mm/s exceeds v2 limit, opens WO-9921"},
+            {"step": 3, "document": "P-101_Maintenance_History.xlsx", "finding": "WO-9921 completed: bearing replaced"},
+            {"step": 4, "document": "P-101_Incident_RCA.docx", "finding": "RCA determines failure caused by operating above 3.0 mm/s limit"}
+        ]
+    }
+]

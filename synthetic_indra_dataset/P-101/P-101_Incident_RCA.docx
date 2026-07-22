@@ -1,0 +1,12 @@
+PK
+(Mock DOCX File content for P-101 Incident RCA. INDRA currently rejects DOCX ingestion based on extension, so this mock file fulfills the presence of the native file for the demo dataset.)
+
+Root Cause Analysis (RCA) - P-101 Bearing Failure
+Date of Incident: 2026-06-12
+Asset: P-101
+
+Summary:
+The centrifugal pump P-101 experienced severe bearing degradation requiring replacement via WO-9921.
+
+Root Cause:
+The unit was operated at 3.8 mm/s vibration. While this was below the old superseded v1 limit of 4.5 mm/s, it exceeded the current approved v2 limit of 3.0 mm/s. The failure to adhere to the current SOP v2 resulted in accelerated wear.

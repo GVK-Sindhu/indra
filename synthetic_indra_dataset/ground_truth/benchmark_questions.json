@@ -1,0 +1,92 @@
+[
+    {
+        "question_id": 1, 
+        "asset_id": "P-101", 
+        "question": "What is the rated pressure for P-101?", 
+        "reasoning_type": "single-document", 
+        "expected_answer": "15 bar", 
+        "required_sources": ["P-101_OEM_Manual.pdf"],
+        "required_facts": ["Rated Pressure: 15 bar"]
+    },
+    {
+        "question_id": 2, 
+        "asset_id": "P-101", 
+        "question": "What is the manufacturer of P-101?", 
+        "reasoning_type": "cross-format", 
+        "expected_answer": "IndusPump Corp", 
+        "required_sources": ["P-101_Nameplate.png", "P-101_OEM_Manual.pdf"],
+        "required_facts": ["Manufacturer: IndusPump Corp"]
+    },
+    {
+        "question_id": 3, 
+        "asset_id": "P-101", 
+        "question": "What was the vibration reading on 2026-06-12 at 09:30?", 
+        "reasoning_type": "single-document", 
+        "expected_answer": "3.8 mm/s", 
+        "required_sources": ["P-101_Sensor_History.csv"],
+        "required_facts": ["2026-06-12T09:30:00Z, 3.8 mm/s"]
+    },
+    {
+        "question_id": 4, 
+        "asset_id": "P-101", 
+        "question": "Who was the inspector that submitted WO-9921?", 
+        "reasoning_type": "single-document", 
+        "expected_answer": "John Doe", 
+        "required_sources": ["P-101_Inspection_Warning.pdf"],
+        "required_facts": ["Inspector: John Doe", "Action: Submitted work order WO-9921"]
+    },
+    {
+        "question_id": 5, 
+        "asset_id": "P-101", 
+        "question": "What action was taken in WO-9921?", 
+        "reasoning_type": "maintenance-history", 
+        "expected_answer": "Replaced degraded thrust bearing", 
+        "required_sources": ["P-101_Maintenance_History.xlsx"],
+        "required_facts": ["WO-9921", "Replaced degraded thrust bearing"]
+    },
+    {
+        "question_id": 6, 
+        "asset_id": "P-101", 
+        "question": "What is the current maximum operating vibration threshold for P-101?", 
+        "reasoning_type": "contradiction-detection", 
+        "expected_answer": "3.0 mm/s", 
+        "required_sources": ["P-101_SOP_v2_Current.pdf"],
+        "required_facts": ["Version: 2.0 (CURRENT)", "vibration threshold: 3.0 mm/s"]
+    },
+    {
+        "question_id": 7, 
+        "asset_id": "P-101", 
+        "question": "Why did the bearing fail according to the RCA?", 
+        "reasoning_type": "cross-document", 
+        "expected_answer": "Operated above the current 3.0 mm/s limit", 
+        "required_sources": ["P-101_Incident_RCA.docx", "P-101_SOP_v2_Current.pdf"],
+        "required_facts": ["exceeded the current approved v2 limit of 3.0 mm/s"]
+    },
+    {
+        "question_id": 8, 
+        "asset_id": "P-101", 
+        "question": "Are P101 and Pump-101 the same asset?", 
+        "reasoning_type": "asset-alias", 
+        "expected_answer": "Yes", 
+        "required_sources": ["P-101_Asset_Metadata.json"],
+        "required_facts": ["asset_id: P-101", "aliases: P101, Pump-101"]
+    },
+    {
+        "question_id": 9, 
+        "asset_id": "P-101", 
+        "question": "What is the safe operating temperature for P-101?", 
+        "reasoning_type": "unsupported-abstention", 
+        "expected_answer": "Abstain (No data available)", 
+        "required_sources": [],
+        "required_facts": []
+    },
+    {
+        "question_id": 10, 
+        "asset_id": "P-101", 
+        "question": "How many hours of operation until the next overhaul?", 
+        "reasoning_type": "unsupported-abstention", 
+        "expected_answer": "Abstain (No data available)", 
+        "required_sources": [],
+        "required_facts": []
+    }
+]

@@ -1,0 +1,12 @@
+[
+    {"file_name": "P-101_OEM_Manual.pdf", "file_path": "P-101/P-101_OEM_Manual.pdf", "asset_id": "P-101", "document_type": "Manual", "file_format": "PDF"},
+    {"file_name": "P-101_SOP_v1_Superseded.pdf", "file_path": "P-101/P-101_SOP_v1_Superseded.pdf", "asset_id": "P-101", "document_type": "SOP", "file_format": "PDF", "revision": "1.0", "approval_status": "OBSOLETE"},
+    {"file_name": "P-101_SOP_v2_Current.pdf", "file_path": "P-101/P-101_SOP_v2_Current.pdf", "asset_id": "P-101", "document_type": "SOP", "file_format": "PDF", "revision": "2.0", "approval_status": "APPROVED"},
+    {"file_name": "P-101_Inspection_Warning.pdf", "file_path": "P-101/P-101_Inspection_Warning.pdf", "asset_id": "P-101", "document_type": "Inspection", "file_format": "PDF"},
+    {"file_name": "P-101_Sensor_History.csv", "file_path": "P-101/P-101_Sensor_History.csv", "asset_id": "P-101", "document_type": "Telemetry", "file_format": "CSV"},
+    {"file_name": "P-101_Maintenance_History.xlsx", "file_path": "P-101/P-101_Maintenance_History.xlsx", "asset_id": "P-101", "document_type": "Maintenance", "file_format": "XLSX"},
+    {"file_name": "P-101_Incident_RCA.docx", "file_path": "P-101/P-101_Incident_RCA.docx", "asset_id": "P-101", "document_type": "RCA", "file_format": "DOCX"},
+    {"file_name": "P-101_Asset_Metadata.json", "file_path": "P-101/P-101_Asset_Metadata.json", "asset_id": "P-101", "document_type": "Metadata", "file_format": "JSON"},
+    {"file_name": "P-101_Nameplate.png", "file_path": "P-101/P-101_Nameplate.png", "asset_id": "P-101", "document_type": "Image", "file_format": "PNG"},
+    {"file_name": "P-101_PID_Snippet.png", "file_path": "P-101/P-101_PID_Snippet.png", "asset_id": "P-101", "document_type": "Image", "file_format": "PNG"}
+]

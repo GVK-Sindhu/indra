@@ -1,0 +1,6 @@
+PNG
+(Mock PNG file for P-101 PID Snippet. INDRA uses simulated OCR for the demo.)
+
+P&ID DIAGRAM SNIPPET
+[Tank T-100] ---> ( Valve V-01 ) ---> [ P-101 ] ---> ( Flow Meter FT-101 )
+Tags: T-100, V-01, P-101, FT-101

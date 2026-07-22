@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pydantic
+pymongo
+chromadb
+google-genai
+python-multipart
+pytesseract
+pillow
+pymupdf
+pyjwt
+passlib[bcrypt]
+bcrypt
+python-dotenv
+openpyxl

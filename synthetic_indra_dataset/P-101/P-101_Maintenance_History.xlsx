@@ -1,0 +1,7 @@
+PK
+(Mock XLSX File content for P-101 Maintenance History. INDRA currently rejects XLSX ingestion based on extension, so this mock file fulfills the presence of the native file for the demo dataset.)
+
+Maintenance History
+Date: 2026-06-14
+WO: WO-9921
+Action: Replaced degraded thrust bearing. Vibration returned to 1.1 mm/s.

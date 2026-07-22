@@ -1,0 +1,8 @@
+{
+    "asset_id": "P-101",
+    "equipment_type": "Centrifugal Pump",
+    "aliases": ["P101", "Pump-101", "P-101A"],
+    "location": "Unit 3",
+    "criticality": "High",
+    "status": "Active"
+}

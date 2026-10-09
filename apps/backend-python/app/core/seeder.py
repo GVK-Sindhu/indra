@@ -8,12 +8,8 @@ from app.core.security import hash_password
 def seed_database_if_needed() -> None:
     """
     Seeds default assets, user accounts, and checklist procedures into MongoDB.
-    Executes only if settings.SEED_DB is set to "true".
+    Executes automatically if database users collection is empty.
     """
-    if settings.SEED_DB.lower() != "true":
-        print("[Seeder] SEED_DB is not enabled. Skipping seeder checks.")
-        return
-
     db = get_db()
     
     # 1. Check if seeding is already complete
@@ -22,7 +18,7 @@ def seed_database_if_needed() -> None:
         ensure_sample_documents_seeded()
         return
 
-    print("[Seeder] SEED_DB is enabled and database is empty. Starting seeding...")
+    print("[Seeder] Database is empty. Seeding default demo users, assets, and SOPs...")
 
     # Wipe collections for clean state
     db.users.delete_many({})

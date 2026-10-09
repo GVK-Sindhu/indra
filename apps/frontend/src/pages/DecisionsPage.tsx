@@ -388,17 +388,24 @@ export const DecisionsPage: React.FC = () => {
                 <div className="flex flex-wrap gap-1.5">
                   <button
                     type="button"
-                    onClick={() => setProblemDescription("Bearing casing vibration readings elevated to 5.2 mm/s with grinding noise.")}
+                    onClick={() => setProblemDescription("Bearing casing vibration readings elevated to 5.2 mm/s with high frequency squealing noise on PUMP-101.")}
                     className="text-[11px] bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1 rounded-md border border-slate-200 transition-colors text-left"
                   >
                     High casing vibration
                   </button>
                   <button
                     type="button"
-                    onClick={() => setProblemDescription("What is the maximum allowed operating temperature for main bearings?")}
+                    onClick={() => setProblemDescription("What is the maximum allowed operating temperature for main bearings on PUMP-101?")}
                     className="text-[11px] bg-slate-100 hover:bg-slate-200 text-slate-700 px-2.5 py-1 rounded-md border border-slate-200 transition-colors text-left"
                   >
                     Max bearing temperature
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setProblemDescription("Squealing noise and high vibration on PUMP-101 startup. Ground query against retiring expert oral knowledge.")}
+                    className="text-[11px] bg-blue-50 hover:bg-blue-100 text-blue-700 font-medium px-2.5 py-1 rounded-md border border-blue-200 transition-colors text-left"
+                  >
+                    ⚡ Retiring Expert Knowledge Query
                   </button>
                 </div>
               </div>

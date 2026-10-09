@@ -102,4 +102,5 @@ The seeder automatically inserts these test user credentials:
   * Password: `manager123`
 * **Admin Workspace**:
   * Email: `admin@indra.ai`
-  * Password: `admin123`
+  * Password: `
+  `

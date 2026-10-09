@@ -16,6 +16,10 @@ node_modules/
 dist/
 build/
 .npm-cache/
+# Allow pre-built frontend distribution for unified cloud deployment
+!apps/frontend/dist/
+!apps/frontend/dist/**
+
 
 # -----------------------------------------------
 # Python / Backend
@@ -29,7 +33,7 @@ __pycache__/
 *.pyd
 .Python
 *.egg-info/
-dist/
+apps/backend-python/dist/
 .eggs/
 *.egg
 .pytest_cache/
@@ -90,3 +94,8 @@ desktop.ini
 # -----------------------------------------------
 *.tsbuildinfo
 vite.config.ts.timestamp-*
+
+# Whitelist compiled frontend for unified cloud deployment
+!apps/frontend/dist/
+!apps/frontend/dist/**
+

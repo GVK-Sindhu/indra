@@ -5,6 +5,7 @@ pymongo
 chromadb
 google-genai
 python-multipart
+pytesseract
 pillow
 pymupdf
 pyjwt

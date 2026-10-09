@@ -1,19 +1,25 @@
 import fitz  # PyMuPDF
-import pytesseract
 from PIL import Image
 import io
 import os
 
-# Explicitly configure default Windows installation path for Tesseract OCR
-if os.name == 'nt':
-    default_tesseract = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-    if os.path.exists(default_tesseract):
-        pytesseract.pytesseract.tesseract_cmd = default_tesseract
+try:
+    import pytesseract
+    PYTESSERACT_INSTALLED = True
+    if os.name == 'nt':
+        default_tesseract = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+        if os.path.exists(default_tesseract):
+            pytesseract.pytesseract.tesseract_cmd = default_tesseract
+except ImportError:
+    pytesseract = None
+    PYTESSERACT_INSTALLED = False
 
 def is_tesseract_available() -> bool:
     """
     Checks if the Tesseract OCR executable is available in the runtime environment.
     """
+    if not PYTESSERACT_INSTALLED or pytesseract is None:
+        return False
     try:
         pytesseract.get_tesseract_version()
         return True

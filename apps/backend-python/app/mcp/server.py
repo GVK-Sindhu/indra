@@ -54,19 +54,15 @@ from app.services.vector_store import search_similar_chunks
 from app.services.embedding_service import get_embedding
 
 # Initialize FastMCP Server
-mcp = FastMCP(
-    "INDRA-Industrial-Reliability-MCP",
-    dependencies=["fastapi", "pymongo", "chromadb", "google-genai"]
-)
+try:
+    mcp = FastMCP("INDRA-Industrial-Reliability-MCP")
+except Exception:
+    mcp = FastMCP()
 
-@mcp.tool(
-    name="get_asset_reliability",
-    description="Calculates and returns the Knowledge Reliability Index (KRI) and active integrity alerts for an industrial asset (e.g. PUMP-102, BOILER-04)."
-)
+@mcp.tool()
 def get_asset_reliability(asset_code: str) -> Dict[str, Any]:
     """
-    Retrieves the asset's current KRI score and component breakdown (Freshness,
-    Consistency, Completeness, Validation), plus all unacknowledged contradiction alerts.
+    Calculates and returns the Knowledge Reliability Index (KRI) and active integrity alerts for an industrial asset (e.g. PUMP-102, BOILER-04).
     """
     db = get_db()
     asset = db.assets.find_one({"code": asset_code.upper()})
@@ -110,14 +106,10 @@ def get_asset_reliability(asset_code: str) -> Dict[str, Any]:
         "isReliable": asset.get("kriScore", 85.0) >= 70.0
     }
 
-@mcp.tool(
-    name="query_industrial_specifications",
-    description="Queries industrial technical documentation, manuals, and SOPs with ChromaDB semantic vector search and returns verified citations with page numbers."
-)
+@mcp.tool()
 def query_industrial_specifications(asset_code: str, query: str) -> Dict[str, Any]:
     """
-    Performs semantic retrieval against the ChromaDB vector index filtered by asset.
-    Returns matched excerpts with immutable page and bounding box provenance.
+    Queries industrial technical documentation, manuals, and SOPs with ChromaDB semantic vector search and returns verified citations with page numbers.
     """
     db = get_db()
     asset = db.assets.find_one({"code": asset_code.upper()})
@@ -148,15 +140,10 @@ def query_industrial_specifications(asset_code: str, query: str) -> Dict[str, An
         "totalEvidenceCount": len(chunks)
     }
 
-@mcp.tool(
-    name="evaluate_decision_guardrails",
-    description="Evaluates an operational diagnostic problem against safety guardrails, calculating Decision Confidence Index (DCI) and triggering Safety Abstention if DCI < 50%."
-)
+@mcp.tool()
 def evaluate_decision_guardrails(asset_code: str, problem_statement: str) -> Dict[str, Any]:
     """
-    Calculates Decision Confidence Index (DCI) using multi-factor weights:
-    40% Evidence Agreement, 20% Historical Success, 20% Data Completeness, 10% Freshness, 10% Validation.
-    If DCI < 50%, triggers deterministic safety abstention.
+    Evaluates an operational diagnostic problem against safety guardrails, calculating Decision Confidence Index (DCI) and triggering Safety Abstention if DCI < 50%.
     """
     db = get_db()
     asset = db.assets.find_one({"code": asset_code.upper()})
@@ -196,13 +183,10 @@ def evaluate_decision_guardrails(asset_code: str, problem_statement: str) -> Dic
         "contradictionDetected": has_contradictions
     }
 
-@mcp.tool(
-    name="detect_sop_contradictions",
-    description="Scans all technical documents and SOP revisions for numerical limit conflicts (e.g. pressure, temperature, clearances)."
-)
+@mcp.tool()
 def detect_sop_contradictions(asset_code: str) -> Dict[str, Any]:
     """
-    Identifies conflicting operational parameters between superseded and active documents.
+    Scans all technical documents and SOP revisions for numerical limit conflicts (e.g. pressure, temperature, clearances).
     """
     db = get_db()
     asset = db.assets.find_one({"code": asset_code.upper()})
@@ -229,13 +213,10 @@ def detect_sop_contradictions(asset_code: str) -> Dict[str, Any]:
         "details": contradictions
     }
 
-@mcp.tool(
-    name="validate_sop_measurement",
-    description="Validates a real-time sensor measurement from a field engineer against verified engineering bounds during SOP checklist execution."
-)
+@mcp.tool()
 def validate_sop_measurement(asset_code: str, parameter_name: str, measured_value: float) -> Dict[str, Any]:
     """
-    Validates field input against verified limits (e.g. Impeller Clearance, Bearing Temp, Steam Pressure).
+    Validates a real-time sensor measurement from a field engineer against verified engineering bounds during SOP checklist execution.
     """
     db = get_db()
     asset = db.assets.find_one({"code": asset_code.upper()})
@@ -274,10 +255,13 @@ def validate_sop_measurement(asset_code: str, parameter_name: str, measured_valu
     }
 
 # MCP Resource Endpoint
-@mcp.resource("indra://assets/{asset_code}/status")
-def asset_status_resource(asset_code: str) -> str:
-    """Resource returning JSON representation of active asset reliability status."""
-    return json.dumps(get_asset_reliability(asset_code), indent=2)
+try:
+    @mcp.resource("indra://assets/{asset_code}/status")
+    def asset_status_resource(asset_code: str) -> str:
+        """Resource returning JSON representation of active asset reliability status."""
+        return json.dumps(get_asset_reliability(asset_code), indent=2)
+except Exception:
+    pass
 
 if __name__ == "__main__":
     mcp.run(transport="stdio")
